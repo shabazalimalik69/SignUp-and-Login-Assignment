@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #signup{
+            width: 30%;
+            margin: auto;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            border-radius: 10px;
+            padding-left: 20px;
+            padding-bottom: 20px;
+        }
+        #submit{
+            display: block;
+            margin: auto;
+            padding: 5px 10px 5px 10px;
+            border-radius: 5px;
+            color: white;
+            background-color: rgb(63, 145, 199);
+        }
+        h1{
+            text-align: center;
+            padding-top: 20px;
+        }
+        #fullName{
+            border-radius: 5px;
+            width: 90%;
+            height: 40px;
+        }
+        #email{
+            border-radius: 5px;
+            width: 90%;
+            height: 40px;
+        }
+        #password{
+            border-radius: 5px;
+            width: 90%;
+            height: 40px;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <form action="" id="signup">
+        <h1>Sign Up</h1>
+        <p>Full Name</p>
+        <input type="text" name="Full Name" id="fullName" placeholder="Enter Full Name">
+        <!-- <hr> -->
+        <p>Email</p>
+        <input type="text" name="Email" id="email" placeholder="Enter Email">
+        <!-- <hr> -->
+        <p>Password</p>
+        <input type="number" name="Password" id="password" placeholder="Enter Password">
+        <!-- <hr> -->
+  <input type="Submit" id="submit" >
+    </form>
+</body>
+</html>
+<script>
+    document.querySelector("#signup").addEventListener("submit", signUpFun);
+    function signUpFun(){
+        event.preventDefault();
+        signUpObj = {
+            Fname : signup.fullName.value,
+            Email : signup.email.value,
+            Password : signup.password.value,
+        }
+        localStorage.setItem("signUpData",JSON.stringify(signUpObj));
+        alert("SignUp Successfully");
+        window.location.href = "signIn.html";
+    }
+</script>

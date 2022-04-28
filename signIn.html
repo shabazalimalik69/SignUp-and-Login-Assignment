@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #signin{
+            width: 30%;
+            margin: auto;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            border-radius: 10px;
+            padding-left: 20px;
+            padding-bottom: 20px;
+        }
+        #sub{
+            display: block;
+            margin: auto;
+            padding: 5px 10px 5px 10px;
+            border-radius: 5px;
+            color: white;
+            background-color: rgb(63, 145, 199);
+        }
+        h1{
+            text-align: center;
+            padding-top: 20px;
+        }
+        #Mail{
+            border-radius: 5px;
+            width: 90%;
+            height: 40px;
+        }
+        #Pass{
+            border-radius: 5px;
+            width: 90%;
+            height: 40px;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <form action="" id="signin">
+        <h1>Sign In</h1>
+        <p>Email</p>
+        <input type="text" name="" id="Mail" placeholder="Enter Email">
+        <p>Password</p>
+        <input type="number" name="" id="Pass" placeholder="Enter Password">
+        <input type="Submit" id="sub">
+    </form>
+</body>
+</html>
+
+<script>
+   
+    document.querySelector("#signin").addEventListener("submit", signInFun);
+    var signUpData = JSON.parse(localStorage.getItem("signUpData"))
+    function signInFun(){
+        event.preventDefault();
+        signInObj = {
+            Email : signin.Mail.value,
+            Password : signin.Pass.value,
+        }
+        if(signUpData===null)
+        {
+            alert("User doesn't Exist")
+        }else if(signUpData.Email==signInObj.Email && signUpData.Password==signInObj.Password)
+        {
+            alert("Login Successfully")
+            localStorage.setItem("signInData",JSON.stringify(signUpData))
+        }else if(signUpData.Email!=signInObj.Email ){
+            alert("Check Email")
+        }else if(signUpData.Password!=signInObj.Password ){
+            alert("Check Password")
+        }
+    }
+</script>
